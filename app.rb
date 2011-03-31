@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'digest/sha2'
 require 'redis'
+require 'pony'
 
 configure do
   enable :sessions
