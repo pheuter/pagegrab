@@ -26,7 +26,11 @@ $(document).ready(function() {
           })
         else if (confirm === 'Registered !')
           $('#register-status').hide().css('color','#339933').text(confirm).fadeIn(function() {
-            setTimeout('$(\'li\').first().slideUp(1000)',1000)
+            setTimeout(function() {
+              $('li').first().slideUp(1000, function() {
+                $('#website-form').slideDown(1000)
+              })         
+            },1000)
           })
         else
           $('#register-status').hide().css('color','red').text(confirm).fadeIn();
@@ -36,5 +40,27 @@ $(document).ready(function() {
     return false;
   });
   
+  $('#add-website').click(function() {
+    $(this).before($("<input type=\"text\" name=\"website\" value=\"http://\"><br/>").fadeIn())
+  });
+  
+  $('#submit-websites').click(function() {
+    var websites = []
+    $.each($('input[name=website]'), function(k,v) { websites.push($(v).val()) })
+    $.post('/submitwebsites', {websites:websites}, function(confirm) {
+      if (confirm === "Not logged in !")
+        $('#website-status').hide().css('color','red').text(confirm).fadeIn();
+      else
+        $('#website-status').hide().css('color','#339933').text(confirm).fadeIn(function() {
+          setTimeout(function() {
+            $($('li')[1]).slideUp(1000, function() {
+              $('#about').slideDown(1000)
+            })         
+          },1000)
+        })
+    })
+    
+    return false;
+  });
   
 });

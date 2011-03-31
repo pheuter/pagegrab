@@ -8,7 +8,8 @@ configure do
 end
 
 get '/' do
-  erb session[:user] ? :member : :index
+  @user = Marshal.load session[:user] if session[:user]
+  erb @user ? :member : :index
 end
 
 post '/register' do
@@ -24,5 +25,17 @@ post '/register' do
     REDIS.set params[:email], user
     session[:user] = user
     "Registered !"
+  end
+end
+
+post '/submitwebsites' do
+  if session[:user]
+    user = Marshal.load session[:user]
+    user[:websites] = params[:websites][0..9]
+    REDIS.set user[:email], Marshal.dump(user)
+    session[:user] = Marshal.dump user
+    "Added #{params[:websites][0..9].length} websites !"
+  else
+    "Not logged in !"
   end
 end

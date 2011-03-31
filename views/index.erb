@@ -11,19 +11,36 @@
 </head>
 <body>
   <div id="header">Page<span style="color:#993333;">Grab</span></div>
-  <ul id="instructions">
+  <ol id="instructions">
     <li>
       Register / Log in
       <form>
         <input type="text" name="email" value="email" id="email">
         <input type="password" name="password" value="password" id="password">
-        <input type="submit" value="Connect" id="register" style="font-size:50px;color:#993333;">
-        <span id="register-status"></span>
+        <input type="submit" value="Connect" id="register" style="font-size:50px; color:#993333;">
+        <span id="register-status" style="font-size:50px; margin-left:10px;"></span>
       </form>    
     </li>
-    <li>Enter some web sites</li>
-    <li>Receive daily emails</li>
-  </ul>
+    <li>
+      Enter some web sites
+      <form id="website-form" style="display:none;">
+        <input type="text" name="website" value="http://news.ycombinator.com"><br/>
+        <input type="text" name="website" value="http://nytimes.com"><br/>
+        <input type="text" name="website" value="http://cnn.com"><br/>
+        <span id="add-website" style="font-size:70px; color:green; float:right;">+</span><br/>
+        <input type="submit" value="Submit" id="submit-websites" style="font-size:50px; color:#993333;"><br/>
+        <span id="website-status" style="font-size:50px; margin-left:10px;"></span>   
+      </form>
+    </li>
+    <li>
+      Receive daily emails
+      <div id="about">
+        Each day, you will receive a 1680x1050 screenshot in the mail for each website you have submitted.<br/><br/>
+        For now, you can submit up to 10 websites and receive emails daily. In the future, a larger email capacity and more frequent
+        emails may be enabled.
+      </div>
+    </li>
+  </ol>
   <div id="footer">Copyright 2011 PageGrab.it | A project by Mark Fayngersh</div>
 </body>
 </html>

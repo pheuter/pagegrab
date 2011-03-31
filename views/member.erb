@@ -12,6 +12,14 @@
 <body>
   <span id="user"><%= Marshal.load(session[:user])[:email] %></span>
   <div id="header">Page<span style="color:#993333;">Grab</span></div>
+  <div id="main">
+    Current websites:
+    <ul>
+      <% @user[:websites].each do |w| %>
+        <li><%= w %></li>
+      <% end %>
+    </ul>
+  </div>
   <div id="footer">Copyright 2011 PageGrab.it | A project by Mark Fayngersh</div>
 </body>
 </html>

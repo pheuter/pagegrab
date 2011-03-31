@@ -132,10 +132,19 @@ a:hover { color: #036; }
   -webkit-box-shadow: 0px 0px 2px #000;
 }
 
-#register-status {  
-  font-size: 50px;  
-  margin-left: 10px;
+#instructions input[name=website] {
+  font-size: 40px;
+  width: 600px;
 }
+
+#about {
+  display: none;
+  
+  font-family: 'Cabin Sketch', arial, serif;
+  font-size: 35px;
+  color: #993333;
+}
+
 
 #user {
   color: #335C99;
@@ -149,6 +158,17 @@ a:hover { color: #036; }
 
   border-left: 1px dashed;
   border-bottom: 1px dashed;
+}
+
+#main {
+  color: #335C99;
+  font-family: 'Cabin Sketch', arial, serif;
+  font-size: 50px;
+  
+  width: 500px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #footer {
